@@ -15,6 +15,7 @@ export class LightShader extends MeshMaterial
     {
         const uniforms: utils.Dict<any> = {
             translationMatrix: Matrix.IDENTITY.toArray(true),
+            uTileMask: new Float32Array(8160),
             // textures from the previously rendered FBOs
             uNormalSampler: Texture.WHITE,
             // size of the renderer viewport, CSS
@@ -26,7 +27,6 @@ export class LightShader extends MeshMaterial
             // height of the light above the viewport
             uLightHeight: 0.075,
             uBrightness: 1.0,
-            uTileMask: new Float32Array(8160),
             uUseViewportQuad: true,
         };
 
