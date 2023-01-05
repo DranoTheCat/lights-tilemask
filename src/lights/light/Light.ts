@@ -119,7 +119,8 @@ export class Light extends Mesh
         uniforms.uNormalSampler = LayerFinder._instance.normalTexture;
         uniforms.uUseViewportQuad = this.useViewportQuad;
         uniforms.uBrightness = this.brightness;
-        uniforms.uTileMask = new Array(8160);
+        uniforms.uTileMask[0] = 7;
+        uniforms.uTileMask[1] = 8;
     }
 
     _renderDefault(renderer: Renderer): void
@@ -158,3 +159,4 @@ export class Light extends Mesh
         renderer.geometry.draw(this.drawMode, this.size, this.start, this.geometry.instanceCount);
     }
 }
+
