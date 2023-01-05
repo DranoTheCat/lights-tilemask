@@ -14,6 +14,7 @@ export const diffuseGroup = new Group(0, false);
  * @type {PIXI.layers.Group}
  */
 export const normalGroup = new Group(0, false);
+export const airGroup = new Group(0, false);
 
 /**
  * @memberof PIXI.lights
@@ -24,6 +25,7 @@ export const lightGroup = new Group(0, false);
 
 diffuseGroup.useRenderTexture = true;
 normalGroup.useRenderTexture = true;
+airGroup.useRenderTexture = true;
 
 /**
  * @memberof PIXI.lights
@@ -45,6 +47,7 @@ export class LayerFinder
      * @type {PIXI.Texture}
      */
     normalTexture: Texture | null = null;
+    airTexture: Texture | null = null;
 
     /**
      * Check
@@ -63,11 +66,13 @@ export class LayerFinder
 
         this.diffuseTexture = Texture.WHITE;
         this.normalTexture = Texture.WHITE;
+        this.airTexture = Texture.WHITE;
 
-        if (layerAny.diffuseTexture && layerAny.normalTexture)
+        if (layerAny.diffuseTexture && layerAny.normalTexture && layerAny.airTexture)
         {
             this.diffuseTexture = layerAny.diffuseTexture;
             this.normalTexture = layerAny.normalTexture;
+            this.airTexture = layerAny.airTexture;
         }
         else
         {
@@ -82,6 +87,10 @@ export class LayerFinder
                 if (texLayer.group === diffuseGroup)
                 {
                     this.diffuseTexture = texLayer.getRenderTexture();
+                }
+                if (texLayer.group === airGroup)
+                {
+                    this.airTexture = texLayer.getRenderTexture();
                 }
             }
         }

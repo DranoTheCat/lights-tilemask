@@ -117,7 +117,7 @@ export class Light extends Mesh
         uniforms.uFlipY = !renderer.framebuffer.current;
         uniforms.uSampler = LayerFinder._instance.diffuseTexture;
         uniforms.uNormalSampler = LayerFinder._instance.normalTexture;
-        uniforms.uAirSampler = LayerFinder._instance.normalTexture;
+        uniforms.uAirSampler = LayerFinder._instance.airTexture;
         uniforms.uUseViewportQuad = this.useViewportQuad;
         uniforms.uBrightness = this.brightness;
         for (let i = 0; i < 8160; i++) {
