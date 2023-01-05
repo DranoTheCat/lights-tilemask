@@ -36,6 +36,7 @@ texCoord.y = (1.0 - texCoord.y) * uFlipY + texCoord.y * (1.0 - uFlipY); // FBOs 
 `;
 
 export const loadNormals: string = `vec4 normalColor = texture2D(uNormalSampler, texCoord);
+vec4 airColor = texture2D(uAirSampler, texCoord);
 normalColor.g = 1.0 - normalColor.g; // Green layer is flipped Y coords.
 
 // bail out early when normal has no data
