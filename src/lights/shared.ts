@@ -11,7 +11,7 @@ uniform sampler2D uNormalSampler;
 
 uniform mat3 translationMatrix;
 
-uniform float uTileMask[2]; // darkworld tile mask, based on viewport
+uniform float uTileMask[16]; // darkworld tile mask, based on viewport
 
 uniform vec2 uViewPixels;   // size of the viewport, in pixels
 uniform vec2 uViewSize;     // size of the viewport, in CSS
