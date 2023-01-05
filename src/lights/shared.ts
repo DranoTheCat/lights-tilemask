@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
-vec3 finalColor = diffuseColor.rgb * intensity;
+//vec3 finalColor = diffuseColor.rgb * intensity;
+vec3 finalColor = airColor.rgb * intensity;
 
-//gl_FragColor = vec4(finalColor, airColor.a);
-gl_FragColor = vec4(airColor);
+gl_FragColor = vec4(finalColor, airColor.a);
+//gl_FragColor = vec4(airColor);
 `;
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
