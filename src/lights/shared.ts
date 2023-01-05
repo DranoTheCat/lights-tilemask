@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
-vec3 finalColor = diffuseColor.rgb * intensity;
+vec3 finalColor = aircolor.rgb * diffuseColor.rgb * intensity;
 
 gl_FragColor = vec4(finalColor, diffuseColor.a);
 `;
