@@ -18,6 +18,7 @@ export class LightShader extends MeshMaterial
             uTileMask: new Float32Array(8160),
             // textures from the previously rendered FBOs
             uNormalSampler: Texture.WHITE,
+            uAirSampler: Texture.WHITE,
             // size of the renderer viewport, CSS
             uViewSize: new Float32Array(2),
             // same, in PIXELS

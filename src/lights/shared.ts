@@ -8,10 +8,9 @@ gl_FragColor = vec4(finalColor, diffuseColor.a);
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
 uniform sampler2D uNormalSampler;
+uniform sampler2D uAirSampler;
 
 uniform mat3 translationMatrix;
-
-uniform float uTileMask[8160]; // darkworld tile mask, based on viewport
 
 uniform vec2 uViewPixels;   // size of the viewport, in pixels
 uniform vec2 uViewSize;     // size of the viewport, in CSS
