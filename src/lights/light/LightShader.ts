@@ -26,7 +26,7 @@ export class LightShader extends MeshMaterial
             // height of the light above the viewport
             uLightHeight: 0.075,
             uBrightness: 1.0,
-            //uTileMask: new Float32Array(8160),
+            uTileMask: new Float32Array(8160),
             uUseViewportQuad: true,
         };
 
