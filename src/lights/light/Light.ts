@@ -119,7 +119,7 @@ export class Light extends Mesh
         uniforms.uNormalSampler = LayerFinder._instance.normalTexture;
         uniforms.uUseViewportQuad = this.useViewportQuad;
         uniforms.uBrightness = this.brightness;
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < 8160; i++) {
             uniforms.uTileMask[i] = i;
         }
     }
