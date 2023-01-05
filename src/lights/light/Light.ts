@@ -115,7 +115,7 @@ export class Light extends Mesh
         uniforms.uViewPixels[0] = renderer.view.width;
         uniforms.uViewPixels[1] = renderer.view.height;
         uniforms.uFlipY = !renderer.framebuffer.current;
-        uniforms.uSampler = LayerFinder._instance.diffuseTexture;
+        uniforms.uSampler = LayerFinder._instance.airTexture;
         uniforms.uNormalSampler = LayerFinder._instance.normalTexture;
         uniforms.uAirSampler = LayerFinder._instance.airTexture;
         uniforms.uUseViewportQuad = this.useViewportQuad;
