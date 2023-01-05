@@ -119,6 +119,7 @@ export class Light extends Mesh
         uniforms.uNormalSampler = LayerFinder._instance.normalTexture;
         uniforms.uUseViewportQuad = this.useViewportQuad;
         uniforms.uBrightness = this.brightness;
+        uniforms.uTileMask = WorldTileMask;
     }
 
     _renderDefault(renderer: Renderer): void
