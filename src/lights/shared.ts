@@ -5,7 +5,6 @@ vec4 diffuseColor = texture2D(uSampler, texCoord);
 vec3 finalColor = diffuseColor.rgb * intensity * airColor.a;
 
 gl_FragColor = vec4(finalColor, diffuseColor.a);
-//gl_FragColor = vec4(airColor);
 `;
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
