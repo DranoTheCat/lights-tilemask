@@ -1,4 +1,4 @@
-import { combine, commonUniforms, computeVertexPosition, loadNormals } from '../shared';
+import { commonUniforms, computeVertexPosition, loadNormals } from '../shared';
 
 export const ambientFrag = `precision highp float;
 
@@ -11,10 +11,9 @@ ${loadNormals}
     // simplified lambert shading that makes assumptions for ambient color
     vec3 diffuse = uColor.rgb * uBrightness;
     vec4 diffuseColor = texture2D(uSampler, texCoord);
-    vec3 finalColor = diffuseColor.rgb * diffuse;
+    vec3 finalColor = diffuseColor.rgb * diffuse * airColor.a;
 
-    //gl_FragColor = vec4(finalColor, diffuseColor.a);
-${combine}
+    gl_FragColor = vec4(finalColor, diffuseColor.a);
 
 }
 `;
