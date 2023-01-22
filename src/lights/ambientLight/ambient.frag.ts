@@ -1,4 +1,4 @@
-import { commonUniforms, computeVertexPosition, loadNormals } from '../shared';
+import { combine, commonUniforms, computeVertexPosition, loadNormals } from '../shared';
 
 export const ambientFrag = `precision highp float;
 
@@ -13,6 +13,7 @@ ${loadNormals}
     vec4 diffuseColor = texture2D(uSampler, texCoord);
     vec3 finalColor = diffuseColor.rgb * diffuse;
 
-    gl_FragColor = vec4(finalColor, diffuseColor.a);
+    //gl_FragColor = vec4(finalColor, diffuseColor.a);
+${combine}
 }
 `;
