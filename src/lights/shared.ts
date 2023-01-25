@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
-vec3 finalColor = diffuseColor.rgb * intensity;
-//vec3 finalColor = diffuseColor.rgb * intensity * airColor.a;
+//vec3 finalColor = diffuseColor.rgb * intensity;
+vec3 finalColor = diffuseColor.rgb * intensity * airColor.a;
 
 gl_FragColor = vec4(finalColor, diffuseColor.a);
 `;
@@ -29,7 +29,14 @@ vec3 L = normalize(lightVector);
 
 // pre-multiply light color with intensity
 // then perform "N dot L" to determine our diffuse
-vec3 diffuse = uColor.rgb * uBrightness * max(dot(N, L), 0.0);
+// if the normal color is 0x010203 skip.  Weird hack, sorry, whatever.
+vec3 diffuse;
+vec3 testColor = vec3(0.004,0.008,0.012);
+if (testColor.rgb == normalColor.rgb) {
+    diffuse = diffuse;
+} else {
+    diffuse = uColor.rgb * uBrightness * max(dot(N, L), 0.0);
+}
 `;
 
 export const computeVertexPosition: string = `vec2 texCoord = gl_FragCoord.xy / uViewPixels;
