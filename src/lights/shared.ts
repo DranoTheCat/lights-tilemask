@@ -2,12 +2,14 @@
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
 //vec3 finalColor = diffuseColor.rgb * intensity;
-vec3 finalColor = diffuseColor.rgb;
+vec3 finalColor = diffuseColor;
 if (testColor.rgb != normalColor.rgb) {
     finalColor = diffuseColor.rgb * intensity * airColor.a;
+    gl_FragColor = vec4(finalColor, diffuseColor.a);
+} else {
+    gl_FragColor = vec4(finalColor, 1.0);
 }
 
-gl_FragColor = vec4(finalColor, diffuseColor.a);
 `;
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
