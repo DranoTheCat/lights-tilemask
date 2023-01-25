@@ -35,7 +35,8 @@ vec3 testColor = vec3(0.004,0.008,0.012);
 if (testColor.rgb == normalColor.rgb) {
     diffuse = diffuse;
 } else {
-    diffuse = uColor.rgb * uBrightness * max(dot(N, L), 0.0);
+    //diffuse = uColor.rgb * uBrightness * max(dot(N, L), 0.0);
+    diffuse = diffuse;
 }
 `;
 
