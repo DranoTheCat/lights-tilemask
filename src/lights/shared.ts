@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
-gl_FragColor = vec4(0.5, 0.5, 0.5, 1.0);
+gl_FragColor = vec4(0.1, 0.1, 0.1, 1.0);
 /*
 if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
@@ -39,7 +39,7 @@ vec3 L = normalize(lightVector);
 
 // pre-multiply light color with intensity
 // then perform "N dot L" to determine our diffuse
-// if the normal color is 0x010203 skip.  Weird hack, sorry, whatever.
+// if the normal color is 0x000000 skip.  Weird hack, sorry, whatever.
 vec3 diffuse;
 vec3 testColor = vec3(0.0,1.0,0.0);
 if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
