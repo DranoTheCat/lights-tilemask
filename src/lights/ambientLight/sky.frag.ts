@@ -16,8 +16,7 @@ if (skyColor.r == diffuseColor.r && skyColor.g == diffuseColor.g && skyColor.b =
         vec3 diffuse = uColor.rgb * uBrightness;
         vec4 diffuseColor = texture2D(uSampler, texCoord);
         vec3 finalColor = diffuseColor.rgb * diffuse;
-        gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-        //gl_FragColor = vec4(finalColor, diffuseColor.a);
+        gl_FragColor = vec4(finalColor, diffuseColor.a);
     }
 }
 
