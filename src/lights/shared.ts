@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
-vec4 skyColor = texture2D(skySampler, texCoord);
 if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
     gl_FragColor = skyColor;
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
