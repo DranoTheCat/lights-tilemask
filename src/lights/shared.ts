@@ -4,7 +4,7 @@ vec4 diffuseColor = texture2D(uSampler, texCoord);
 vec4 skyColor = texture2D(uSkySampler, texCoord);
 if (skyColor.r == diffuseColor.r && skyColor.g == diffuseColor.g && skyColor.b == diffuseColor.b) {
     if (skyColor.a == diffuseColor.a) {
-        gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0); // we are the same as sky, so let's not put light on sky
+        discard;
     }
     //gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
