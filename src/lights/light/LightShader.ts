@@ -15,7 +15,6 @@ export class LightShader extends MeshMaterial
     {
         const uniforms: utils.Dict<any> = {
             translationMatrix: Matrix.IDENTITY.toArray(true),
-            uTileMask: new Float32Array(8160),
             // textures from the previously rendered FBOs
             uNormalSampler: Texture.WHITE,
             uAirSampler: Texture.WHITE,
