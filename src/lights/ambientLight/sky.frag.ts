@@ -9,6 +9,7 @@ void main(void)
 ${computeVertexPosition}
 ${loadNormals}
 
+vec4 skyColor = texture2D(uSkySampler, texCoord);
 if (skyColor.r == diffuseColor.r && skyColor.g == diffuseColor.g && skyColor.b == diffuseColor.b) {
     if (skyColor.a == diffuseColor.a) {
         vec3 diffuse = uColor.rgb * uBrightness;
