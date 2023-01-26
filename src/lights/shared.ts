@@ -2,16 +2,15 @@
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
 vec3 finalColor = diffuseColor.rgb;
-if (testColor.rgb != normalColor.rgb) {
+if (all(testColor.rgb == normalColor.rgb)) {
+    finalColor = vec3(0.0, 0.0, 1.0);
+    gl_FragColor = vec4(finalColor, diffuseColor.a);
+} else {
     finalColor = diffuseColor.rgb * intensity * airColor.a;
     gl_FragColor = vec4(normalColor.rgb, 1.0);
     //gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
     //gl_FragColor = vec4(finalColor, airColor.a);
-} else {
-    finalColor = vec3(0.0, 0.0, 1.0);
-    gl_FragColor = vec4(finalColor, diffuseColor.a);
 }
-
 `;
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
@@ -39,7 +38,7 @@ vec3 L = normalize(lightVector);
 // if the normal color is 0x010203 skip.  Weird hack, sorry, whatever.
 vec3 diffuse;
 vec3 testColor = vec3(0.0,1.0,0.0);
-if (testColor.rgb == normalColor.rgb) {
+if (all(testColor.rgb == normalColor.rgb)) {
     diffuse = diffuse;
 } else {
     //diffuse = uColor.rgb * uBrightness * max(dot(N, L), 0.0);
