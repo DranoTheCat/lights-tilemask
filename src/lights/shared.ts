@@ -6,7 +6,7 @@ if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b 
     //gl_FragColor = diffuseColor;
     gl_FragColor = vec4(diffuseColor.r, diffuseColor.g, diffuseColor.b, diffuseColor.a);
 } else {
-    vec3 finalColor = diffuseColor.rgb * intensity * airColor.a;
+    vec3 finalColor = diffuseColor.rgb * intensity;// * airColor.a;
     //gl_FragColor = vec4(normalColor.rgb, 1.0);
     //gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
     gl_FragColor = vec4(finalColor.rgb, airColor.a);
