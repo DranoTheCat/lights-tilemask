@@ -2,7 +2,7 @@
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
 if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
-    gl_FragColor = vec4(finalColor.rgb, diffuseColor.a);
+    gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
 } else {
     vec3 finalColor = diffuseColor.rgb * intensity * airColor.a;
     //gl_FragColor = vec4(normalColor.rgb, 1.0);
