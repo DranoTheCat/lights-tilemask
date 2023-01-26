@@ -55,7 +55,7 @@ vec4 airColor = texture2D(uAirSampler, texCoord);
 normalColor.g = 1.0 - normalColor.g; // Green layer is flipped Y coords.
 
 // bail out early when normal has no data
-if (normalColor.a == 0.0) discard;
+//if (normalColor.a == 0.0) discard;
 `;
 
 export const vert: string = `attribute vec2 aVertexPosition;
