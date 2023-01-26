@@ -12,7 +12,8 @@ ${computeVertexPosition}
 vec4 diffuseColor = texture2D(uSampler, texCoord);
 if (diffuseColor.a == 0.0) {
     vec4 skyColor = texture2D(uSkySampler, texCoord);
-    gl_FragColor = skyColor;
+    //gl_FragColor = skyColor;
+    gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
 } else {
     discard;
 }
