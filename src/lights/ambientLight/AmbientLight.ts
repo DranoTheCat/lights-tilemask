@@ -1,5 +1,6 @@
 import { Light } from '../light/Light';
 import { AmbientLightShader } from './AmbientLightShader';
+import { BLEND_MODES } from '@pixi/core';
 
 /**
  * Ambient light is drawn using a full-screen quad.
@@ -14,5 +15,6 @@ export class AmbientLight extends Light
     constructor(color = 0xFFFFFF, brightness = 0.5)
     {
         super(color, brightness, new AmbientLightShader());
+        this.blendMode = BLEND_MODES.NORMAL;
     }
 }
