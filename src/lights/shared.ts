@@ -38,7 +38,7 @@ vec3 L = normalize(lightVector);
 vec3 diffuse;
 vec3 testColor = vec3(0.0,1.0,0.0);
 if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
-    diffuse = 1.0;
+    diffuse = vec3(1.0, 1.0, 1.0);
 } else {
     diffuse = uColor.rgb * uBrightness * max(dot(N, L), 0.0);
 }
