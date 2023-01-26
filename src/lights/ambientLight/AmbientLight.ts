@@ -15,6 +15,6 @@ export class AmbientLight extends Light
     constructor(color = 0xFFFFFF, brightness = 0.5)
     {
         super(color, brightness, new AmbientLightShader());
-        this.blendMode = BLEND_MODES.NORMAL;
+        //this.blendMode = BLEND_MODES.NORMAL;
     }
 }

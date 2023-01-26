@@ -17,7 +17,7 @@ export class LightShader extends MeshMaterial
             translationMatrix: Matrix.IDENTITY.toArray(true),
             // textures from the previously rendered FBOs
             uNormalSampler: Texture.WHITE,
-            uAirSampler: Texture.WHITE,
+            uSkySampler: Texture.WHITE,
             // size of the renderer viewport, CSS
             uViewSize: new Float32Array(2),
             // same, in PIXELS

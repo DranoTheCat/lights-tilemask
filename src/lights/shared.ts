@@ -6,16 +6,16 @@ if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b 
     //gl_FragColor = diffuseColor;
     gl_FragColor = vec4(diffuseColor.r, diffuseColor.g, diffuseColor.b, diffuseColor.a);
 } else {
-    vec3 finalColor = diffuseColor.rgb * intensity;// * airColor.a;
+    vec3 finalColor = diffuseColor.rgb * intensity;
     //gl_FragColor = vec4(normalColor.rgb, 1.0);
     //gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-    gl_FragColor = vec4(finalColor.rgb, airColor.a);
+    gl_FragColor = vec4(finalColor.rgb, finalColor.a);
 }
 `;
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
 uniform sampler2D uNormalSampler;
-uniform sampler2D uAirSampler;
+uniform sampler2D uSkySampler;
 
 uniform mat3 translationMatrix;
 
@@ -50,7 +50,7 @@ texCoord.y = (1.0 - texCoord.y) * uFlipY + texCoord.y * (1.0 - uFlipY); // FBOs 
 `;
 
 export const loadNormals: string = `vec4 normalColor = texture2D(uNormalSampler, texCoord);
-vec4 airColor = texture2D(uAirSampler, texCoord);
+vec4 skyColor = texture2D(uSkySampler, texCoord);
 normalColor.g = 1.0 - normalColor.g; // Green layer is flipped Y coords.
 
 // bail out early when normal has no data
