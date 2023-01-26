@@ -20,5 +20,5 @@ if (skyColor.r == diffuseColor.r && skyColor.g == diffuseColor.g && skyColor.b =
         gl_FragColor = vec4(finalColor, diffuseColor.a);
     }
 }
-discard;
+
 `;
