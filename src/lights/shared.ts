@@ -37,7 +37,7 @@ vec3 L = normalize(lightVector);
 // then perform "N dot L" to determine our diffuse
 // if the normal color is 0x010203 skip.  Weird hack, sorry, whatever.
 vec3 diffuse;
-vec3 testColor = vec3(0.004,0.008,0.012);
+vec3 testColor = vec3(0.004,0.992,0.012);
 if (testColor.rgb == normalColor.rgb) {
     diffuse = diffuse;
 } else {
