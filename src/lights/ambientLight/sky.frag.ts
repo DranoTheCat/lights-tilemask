@@ -14,7 +14,10 @@ if (diffuseColor.a == 0.0) {
     vec4 skyColor = texture2D(uSkySampler, texCoord);
     gl_FragColor = vec4(skyColor.r * uBrightness, skyColor.g * uBrightness, skyColor.b * uBrightness, 1.0);
 } else {
-    discard;
+    // simplified lambert shading that makes assumptions for ambient color
+    vec3 diffuse = uColor.rgb * uBrightness;
+    vec3 finalColor = diffuseColor.rgb * diffuse;
+    gl_FragColor = vec4(finalColor, diffuseColor.a);
 }
 
 }
