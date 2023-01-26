@@ -120,9 +120,6 @@ export class Light extends Mesh
         uniforms.uAirSampler = LayerFinder._instance.airTexture;
         uniforms.uUseViewportQuad = this.useViewportQuad;
         uniforms.uBrightness = this.brightness;
-        for (let i = 0; i < 8160; i++) {
-            uniforms.uTileMask[i] = i;
-        }
     }
 
     _renderDefault(renderer: Renderer): void
