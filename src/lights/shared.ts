@@ -4,7 +4,7 @@ vec4 diffuseColor = texture2D(uSampler, texCoord);
 if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
     //gl_FragColor = diffuseColor;
-    gl_FragColor = vec4(diffuseColor.r, diffuseColor.g, diffuseColor.b, 1.0);
+    gl_FragColor = vec4(diffuseColor.r, diffuseColor.g, diffuseColor.b, diffuseColor.a);
 } else {
     discard;
     vec3 finalColor = diffuseColor.rgb * intensity;// * airColor.a;
