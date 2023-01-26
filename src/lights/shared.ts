@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
+gl_FragColor = diffuseColor;
+/*
 if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
     //gl_FragColor = diffuseColor;
@@ -12,7 +14,7 @@ if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b 
     //gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
     //gl_FragColor = vec4(finalColor.rgb, airColor.a);
     gl_FragColor = diffuseColor;
-}
+}*/
 `;
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
