@@ -31,6 +31,6 @@ export class SkyLight extends Light
     constructor(color = 0xFFFFFF, brightness = 1.0)
     {
         super(color, brightness, new SkyLightShader());
-        this.blendMode = BLEND_MODES.NORMAL;
+        //this.blendMode = BLEND_MODES.NORMAL;
     }
 }
