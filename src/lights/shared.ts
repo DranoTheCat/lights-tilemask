@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
+vec4 skyColor = texture2D(uSkySampler, texCoord);
 if (normalColor.a == 0.0) {
     //gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);
-    gl_FragColor = vec4(skyColor.r, skyColor.g, skyColor.b, skyColor.a);
+    gl_FragColor = skyColor;
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
     //gl_FragColor = diffuseColor;
     //gl_FragColor = vec4(diffuseColor.r, diffuseColor.g, diffuseColor.b, diffuseColor.a);
@@ -52,7 +53,6 @@ texCoord.y = (1.0 - texCoord.y) * uFlipY + texCoord.y * (1.0 - uFlipY); // FBOs 
 `;
 
 export const loadNormals: string = `vec4 normalColor = texture2D(uNormalSampler, texCoord);
-vec4 skyColor = texture2D(uSkySampler, texCoord);
 normalColor.g = 1.0 - normalColor.g; // Green layer is flipped Y coords.
 
 // bail out early when normal has no data
