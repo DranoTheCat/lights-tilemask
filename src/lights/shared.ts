@@ -5,7 +5,7 @@ vec3 finalColor = diffuseColor.rgb;
 if (testColor.rgb != normalColor.rgb) {
     finalColor = diffuseColor.rgb * intensity * airColor.a;
     //gl_FragColor = vec4(normalColor.rgb, 1.0);
-    gl_FragColor = vec4(1.0, 0.0, 0.0);
+    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
     //gl_FragColor = vec4(finalColor, airColor.a);
 } else {
     finalColor = vec3(0.0, 0.0, 1.0);
