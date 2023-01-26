@@ -16,6 +16,7 @@ ${loadNormals}
 vec4 dColor = texture2D(uSampler, texCoord);
 if (dColor.a == 0.0) {
     discard;
+}
 
     vec2 lightPosition = translationMatrix[2].xy / uViewSize;
 
