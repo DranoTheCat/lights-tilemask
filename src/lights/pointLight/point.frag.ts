@@ -5,6 +5,11 @@ export const pointFrag = `precision highp float;
 // imports the common uniforms like samplers, and ambient color
 ${commonUniforms}
 
+// test fix this later if works
+vec4 dColor = texture2D(uSampler, texCoord);
+if (dColor.a == 0.0) {
+    discard;
+
 uniform float uLightRadius;
 
 void main()
