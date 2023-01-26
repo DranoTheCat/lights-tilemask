@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
-if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
+if (normalColor.a == 0) {
     gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);
     //gl_FragColor = skyColor;
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
@@ -56,7 +56,7 @@ vec4 skyColor = texture2D(uSkySampler, texCoord);
 normalColor.g = 1.0 - normalColor.g; // Green layer is flipped Y coords.
 
 // bail out early when normal has no data
-if (normalColor.a == 0.0) discard;
+//if (normalColor.a == 0.0) discard;
 `;
 
 export const vert: string = `attribute vec2 aVertexPosition;
