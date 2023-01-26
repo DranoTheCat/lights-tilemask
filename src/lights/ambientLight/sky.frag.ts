@@ -17,5 +17,7 @@ if (diffuseColor.a == 0.0) {
     discard;
 }
 
+
 }
 `;
+
