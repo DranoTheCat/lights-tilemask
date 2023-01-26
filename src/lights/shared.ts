@@ -2,18 +2,19 @@
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
 vec4 skyColor = texture2D(uSkySampler, texCoord);
-if (normalColor.a == 0.0) {
+if (skyColor.r == diffuseColor.r && skyColor.g == diffuseColor.g && skyColor.b == diffuseColor.b) {
+    if (skyColor.a == diffuseColor.a) {
+        discard; // we are the same as sky, so let's not put light on sky
+    }
     //gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);
-    discard;
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
     //gl_FragColor = diffuseColor;
     //gl_FragColor = vec4(diffuseColor.r, diffuseColor.g, diffuseColor.b, diffuseColor.a);
-} else {
-    vec3 finalColor = diffuseColor.rgb * intensity;
-    //gl_FragColor = vec4(normalColor.rgb, 1.0);
-    //gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-    gl_FragColor = vec4(finalColor.rgb, diffuseColor.a);
 }
+vec3 finalColor = diffuseColor.rgb * intensity;
+//gl_FragColor = vec4(normalColor.rgb, 1.0);
+//gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+gl_FragColor = vec4(finalColor.rgb, diffuseColor.a);
 `;
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
