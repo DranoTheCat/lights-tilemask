@@ -2,9 +2,11 @@
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
 if (testColor.r == normalColor.r && testColor.g == normalColor.g && testColor.b == normalColor.b) {
+    // abort if we are sky
+    discard;
     //gl_FragColor = vec4(diffuseColor.rgb, diffuseColor.a);
     //gl_FragColor = diffuseColor;
-    gl_FragColor = vec4(diffuseColor.r, diffuseColor.g, diffuseColor.b, diffuseColor.a);
+    //gl_FragColor = vec4(diffuseColor.r, diffuseColor.g, diffuseColor.b, diffuseColor.a);
 } else {
     vec3 finalColor = diffuseColor.rgb * intensity;
     //gl_FragColor = vec4(normalColor.rgb, 1.0);
