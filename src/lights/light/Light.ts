@@ -118,6 +118,7 @@ export class Light extends Mesh
         uniforms.uSampler = LayerFinder._instance.diffuseTexture;
         uniforms.uNormalSampler = LayerFinder._instance.normalTexture;
         uniforms.uSkySampler = LayerFinder._instance.skyTexture;
+        uniforms.uFowSampler = LayerFinder._instance.fowTexture;
         uniforms.uUseViewportQuad = this.useViewportQuad;
         uniforms.uBrightness = this.brightness;
     }

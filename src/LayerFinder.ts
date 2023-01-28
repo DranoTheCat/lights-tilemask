@@ -15,6 +15,7 @@ export const diffuseGroup = new Group(0, false);
  */
 export const normalGroup = new Group(0, false);
 export const skyGroup = new Group(-1, false);
+export const fowGroup = new Group(-2, false);
 
 /**
  * @memberof PIXI.lights
@@ -26,6 +27,7 @@ export const lightGroup = new Group(0, false);
 diffuseGroup.useRenderTexture = true;
 normalGroup.useRenderTexture = true;
 skyGroup.useRenderTexture = true;
+fowGroup.useRenderTexture = true;
 
 /**
  * @memberof PIXI.lights
@@ -48,6 +50,7 @@ export class LayerFinder
      */
     normalTexture: Texture | null = null;
     skyTexture: Texture | null = null;
+    fowTexture: Texture | null = null;
 
     /**
      * Check
@@ -67,12 +70,14 @@ export class LayerFinder
         this.diffuseTexture = Texture.WHITE;
         this.normalTexture = Texture.WHITE;
         this.skyTexture = Texture.WHITE;
+        this.fowTexture = Texture.WHITE;
 
-        if (layerAny.diffuseTexture && layerAny.normalTexture && layerAny.skyTexture)
+        if (layerAny.diffuseTexture && layerAny.normalTexture && layerAny.skyTexture && layerAny.fowTexture)
         {
             this.diffuseTexture = layerAny.diffuseTexture;
             this.normalTexture = layerAny.normalTexture;
             this.skyTexture = layerAny.skyTexture;
+            this.fowTexture = layerAny.fowTexture;
         }
         else
         {
@@ -91,6 +96,10 @@ export class LayerFinder
                 if (texLayer.group === skyGroup)
                 {
                     this.skyTexture = texLayer.getRenderTexture();
+                }
+                if (texLayer.group === fowGroup)
+                {
+                    this.fowTexture = texLayer.getRenderTexture();
                 }
             }
         }

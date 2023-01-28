@@ -9,6 +9,8 @@ void main(void)
 ${computeVertexPosition}
 
 vec4 diffuseColor = texture2D(uSampler, texCoord);
+vec4 fowColor = texture2D(uFowSampler, texCoord);
+
 if (diffuseColor.a == 0.0) {
     vec4 skyColor = texture2D(uSkySampler, texCoord);
     vec3 finalColor = skyColor.rgb * uColor.rgb;

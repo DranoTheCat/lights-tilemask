@@ -2,6 +2,7 @@
 export const combine: string = `vec3 intensity = diffuse * attenuation;
 vec4 diffuseColor = texture2D(uSampler, texCoord);
 vec4 skyColor = texture2D(uSkySampler, texCoord);
+vec4 fowColor = texture2D(uFowSampler, texCoord);
 
 vec3 finalColor = diffuseColor.rgb * intensity;
 //gl_FragColor = vec4(normalColor.rgb, 1.0);
@@ -12,6 +13,7 @@ gl_FragColor = vec4(finalColor.rgb, diffuseColor.a);
 export const commonUniforms: string = `uniform sampler2D uSampler;
 uniform sampler2D uNormalSampler;
 uniform sampler2D uSkySampler;
+uniform sampler2D uFowSampler;
 
 uniform mat3 translationMatrix;
 
