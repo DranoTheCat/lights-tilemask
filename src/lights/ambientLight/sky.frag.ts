@@ -19,7 +19,9 @@ if (diffuseColor.a == 0.0) {
     // simplified lambert shading that makes assumptions for ambient color
     vec3 diffuse = uColor.rgb * uBrightness;
     vec3 finalColor = diffuseColor.rgb * diffuse;
-    gl_FragColor = vec4(finalColor, diffuseColor.a);
+
+    vec4 finalFinalColor = vec4(finalColor.rgb, diffuseColor.a) * fowColor;
+    gl_FragColor = finalFinalColor;
 }
 
 }
