@@ -17,7 +17,6 @@ ${loadNormals}
 
     vec4 finalFinalColor = vec4(finalColor, diffuseColor.a) * fowColor;
 
-    //gl_FragColor = finalFinalColor;
-    gl_FragColor = fowColor;
+    gl_FragColor = finalFinalColor;
 }
 `;

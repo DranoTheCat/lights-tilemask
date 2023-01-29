@@ -6,8 +6,7 @@ vec4 fowColor = texture2D(uFowSampler, texCoord);
 
 vec3 finalColor = diffuseColor.rgb * intensity;
 vec4 finalFinalColor = vec4(finalColor.rgb, diffuseColor.a) * fowColor;
-//gl_FragColor = finalFinalColor;
-gl_FragColor = fowColor;
+gl_FragColor = finalFinalColor;
 `;
 
 export const commonUniforms: string = `uniform sampler2D uSampler;
